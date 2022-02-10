@@ -21,9 +21,9 @@
     android:title="@string/firmware_version"
     settings:keywords="@string/keywords_android_version">
 
-<PreferenceScreen
-    android:layout="@layout/dot_logo"
-    android:key="dot_logo" />
+    <PreferenceScreen
+        android:layout="@layout/naika_logo"
+        android:key="naika_logo" />
 
     <!-- Android version -->
     <Preference

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) The 2022 The Naika Project
+   Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+         http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="18dp"
+    android:height="14dp"
+    android:viewportWidth="75.4"
+    android:viewportHeight="67.6">
+  <path
+      android:fillColor="#fff"
+      android:pathData="M75.408,17.105l-8.6,-0l0,-8.6l8.6,0z"/>
+  <path
+      android:fillColor="#fff"
+      android:pathData="M66.871,25.742l-8.6,-0l0,-8.6l8.6,0z"/>
+  <path
+      android:fillColor="#fff"
+      android:pathData="M49.7,8.6h8.6v8.6h-8.6z"/>
+  <path
+      android:fillColor="#fff"
+      android:pathData="M58.3,0h8.6v8.6h-8.6z"/>
+  <path
+      android:fillColor="#fff"
+      android:pathData="M9.1,45.5l0,-19.8l-9.1,0l0,41.9l9.1,0l0,-14.2z"/>
+  <path
+      android:fillColor="#fff"
+      android:pathData="M35,17.2l-25.9,0l0,8.5l21.9,0l9.7,9.6l0,32.3l9,0l0,-35.4z"/>
+</vector>
