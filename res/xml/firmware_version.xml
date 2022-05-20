@@ -34,14 +34,13 @@
         settings:searchable="false"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController"/>
 
-    <!-- Dot version -->
+    <!-- NaikaOS version -->
     <Preference
-         android:key="dot_version"
-         android:title="@string/dot_version"
+         android:key="naika_version"
+         android:title="@string/naika_version"
          android:summary="@string/summary_placeholder"
          settings:enableCopying="true"
-         settings:controller="com.android.settings.deviceinfo.firmwareversion.DotVersionPreferenceController"/>
-
+         settings:controller="com.android.settings.deviceinfo.firmwareversion.NaikaVersionPreferenceController"/>
 
     <!-- Security patch -->
     <Preference
@@ -68,7 +67,7 @@
         settings:controller="com.android.settings.deviceinfo.firmwareversion.BasebandVersionPreferenceController"/>
 
     <!-- Build date -->
-    <Preference 
+    <Preference
         android:key="build_date"
         android:title="@string/build_date"
         android:summary="@string/build_date_default"
