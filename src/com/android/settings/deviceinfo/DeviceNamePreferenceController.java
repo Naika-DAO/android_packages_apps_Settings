@@ -32,17 +32,15 @@ import androidx.preference.PreferenceScreen;
 import com.android.settings.R;
 import com.android.settings.bluetooth.BluetoothLengthDeviceNameFilter;
 import com.android.settings.core.BasePreferenceController;
-import com.android.settings.deviceinfo.aboutphone.AboutDevice;
+import com.android.settings.widget.ValidatedEditTextPreference;
 import com.android.settings.wifi.tether.WifiDeviceNameTextValidator;
 import com.android.settingslib.core.lifecycle.LifecycleObserver;
 import com.android.settingslib.core.lifecycle.events.OnCreate;
 import com.android.settingslib.core.lifecycle.events.OnSaveInstanceState;
-import com.android.settingslib.widget.LayoutPreference;
-
-import kotlin.Unit;
 
 public class DeviceNamePreferenceController extends BasePreferenceController
-        implements Preference.OnPreferenceChangeListener,
+        implements ValidatedEditTextPreference.Validator,
+        Preference.OnPreferenceChangeListener,
         LifecycleObserver,
         OnSaveInstanceState,
         OnCreate {
@@ -53,8 +51,7 @@ public class DeviceNamePreferenceController extends BasePreferenceController
     protected WifiManager mWifiManager;
     private final BluetoothAdapter mBluetoothAdapter;
     private final WifiDeviceNameTextValidator mWifiDeviceNameTextValidator;
-    private LayoutPreference mPreference;
-    private AboutDevice mDeviceCard;
+    private ValidatedEditTextPreference mPreference;
     private DeviceNamePreferenceHost mHost;
     private String mPendingDeviceName;
 
@@ -72,13 +69,10 @@ public class DeviceNamePreferenceController extends BasePreferenceController
     public void displayPreference(PreferenceScreen screen) {
         super.displayPreference(screen);
         mPreference = screen.findPreference(getPreferenceKey());
-        mDeviceCard = mPreference.findViewById(R.id.about_device_header);
         final CharSequence deviceName = getSummary();
-        mDeviceCard.setDeviceName(deviceName.toString(), mWifiDeviceNameTextValidator.isTextValid(deviceName.toString()));
-        mDeviceCard.setListener(s -> {
-            setDeviceName(s);
-            return Unit.INSTANCE;
-        });
+        mPreference.setSummary(deviceName);
+        mPreference.setText(deviceName.toString());
+        mPreference.setValidator(this);
     }
 
     private void initializeDeviceName() {
@@ -96,7 +90,9 @@ public class DeviceNamePreferenceController extends BasePreferenceController
 
     @Override
     public int getAvailabilityStatus() {
-        return AVAILABLE;
+        return mContext.getResources().getBoolean(R.bool.config_show_device_name)
+                ? AVAILABLE
+                : UNSUPPORTED_ON_DEVICE;
     }
 
     @Override
@@ -108,11 +104,19 @@ public class DeviceNamePreferenceController extends BasePreferenceController
         return true;
     }
 
+    @Override
+    public boolean isTextValid(String deviceName) {
+        // BluetoothNameDialogFragment describes BT name filter as a 248 bytes long cap.
+        // Given the restrictions presented by the SSID name filter (32 char), I don't believe it is
+        // possible to construct an SSID that is not a valid Bluetooth name.
+        return mWifiDeviceNameTextValidator.isTextValid(deviceName);
+    }
+
     public void updateDeviceName(boolean update) {
         if (update && mPendingDeviceName != null) {
             setDeviceName(mPendingDeviceName);
         } else {
-            setDeviceName(getSummary().toString());
+            mPreference.setText(getSummary().toString());
         }
     }
 
@@ -120,14 +124,15 @@ public class DeviceNamePreferenceController extends BasePreferenceController
         mHost = host;
     }
 
+    /**
+     * This method presumes that security/validity checks have already been passed.
+     */
     private void setDeviceName(String deviceName) {
-        if (mWifiDeviceNameTextValidator.isTextValid(deviceName)) {
-            mDeviceName = deviceName;
-            setSettingsGlobalDeviceName(deviceName);
-            setBluetoothDeviceName(deviceName);
-            setTetherSsidName(deviceName);
-            mDeviceCard.setDeviceName(deviceName);
-        }
+        mDeviceName = deviceName;
+        setSettingsGlobalDeviceName(deviceName);
+        setBluetoothDeviceName(deviceName);
+        setTetherSsidName(deviceName);
+        mPreference.setSummary(getSummary());
     }
 
     private void setSettingsGlobalDeviceName(String deviceName) {

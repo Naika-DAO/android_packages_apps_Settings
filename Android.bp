@@ -44,7 +44,7 @@ android_library {
         "SettingsLib-search-defaults",
     ],
 
-    srcs: ["src/**/*.java", "src/**/*.kt"],
+    srcs: ["src/**/*.java"],
     resource_dirs: [
         "res",
         "res-dot",
