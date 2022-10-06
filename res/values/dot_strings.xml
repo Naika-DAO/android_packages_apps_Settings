@@ -17,8 +17,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- About phone screen, dot OS version -->
-    <string name="dot_version">dotOS version</string>
-    <string name="dot_version_default">Unknown</string>
+    <string name="naika_version">dotOS version</string>
+    <string name="naika_version_default">Unknown</string>
     <string name="keywords_dot_version">dotOS version, dot version</string>
 
     <!-- About phone screen, build date -->

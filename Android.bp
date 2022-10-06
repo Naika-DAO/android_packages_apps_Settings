@@ -47,7 +47,7 @@ android_library {
     srcs: ["src/**/*.java", "src/**/*.kt"],
     resource_dirs: [
         "res",
-        "res-dot",
+        "res-naika",
         "res-pixel",
     ],
 
@@ -81,6 +81,7 @@ android_library {
         "windowExtLib",
         "custom-preference",
         "vendor.lineage.fastcharge-V1.0-java",
+        "Naika-UIKit",
         "faceunlock_framework",
         "SettingsGoogle-lib",
     ],

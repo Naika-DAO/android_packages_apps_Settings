@@ -25,8 +25,10 @@
         android:layout="@layout/naika_logo"
         android:key="naika_logo" />
 
+    <PreferenceCategory />
+
     <!-- Android version -->
-    <Preference
+    <io.naika.ui.prefs.RoundedPreference
         android:key="os_firmware_version"
         android:title="@string/firmware_version"
         android:summary="@string/summary_placeholder"
@@ -35,7 +37,7 @@
         settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController"/>
 
     <!-- NaikaOS version -->
-    <Preference
+    <io.naika.ui.prefs.RoundedPreference
          android:key="naika_version"
          android:title="@string/naika_version"
          android:summary="@string/summary_placeholder"
@@ -43,7 +45,7 @@
          settings:controller="com.android.settings.deviceinfo.firmwareversion.NaikaVersionPreferenceController"/>
 
     <!-- Security patch -->
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="security_key"
         android:title="@string/security_patch"
         settings:enableCopying="true"

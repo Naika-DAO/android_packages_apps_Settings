@@ -51,6 +51,8 @@ import com.android.settingslib.search.SearchIndexable;
 import com.android.settingslib.widget.ActionBarShadowController;
 import com.android.settingslib.widget.LayoutPreference;
 
+import io.naika.ui.controller.PreferenceCornerHandler;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,6 +81,12 @@ public class MyDeviceInfoFragment extends DashboardFragment
         use(DeviceNamePreferenceController.class).setHost(this /* parent */);
         mBuildNumberPreferenceController = use(BuildNumberPreferenceController.class);
         mBuildNumberPreferenceController.setHost(this /* parent */);
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        super.onCreatePreferences(savedInstanceState, rootKey);
+        new PreferenceCornerHandler(getPreferenceScreen());
     }
 
     @Override

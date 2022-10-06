@@ -20,27 +20,27 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:key="top_level_settings">
 
-    <Preference
+    <io.naika.ui.prefs.WalletPreference android:order="-305"/>
+
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_about_device"
         android:order="-205"
         android:icon="@drawable/ic_phone_info"
-        android:title="@string/dot_dashboard_device"
+        android:title="@string/naika_dashboard_device"
         android:summary="@string/summary_placeholder"
-        settings:layout="@layout/dot_dashboard_preference_phone"
         android:fragment="com.android.settings.deviceinfo.aboutphone.MyDeviceInfoFragment"
         settings:controller="com.android.settings.deviceinfo.aboutphone.TopLevelAboutDevicePreferenceController"/>
 
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_system_updates"
         android:order="-204"
         android:icon="@drawable/ic_system_update"
-        android:title="@string/dot_dashboard_updates"
-        android:summary="@string/dot_updates_status_updated"
-        settings:layout="@layout/dot_dashboard_preference_bottom"
+        android:title="@string/naika_dashboard_updates"
+        android:summary="@string/naika_updates_status_updated"
         settings:keywords="@string/keywords_system_update_settings"
         settings:controller="com.android.settings.system.SystemUpdatePreferenceController">
         <intent android:action="android.settings.SYSTEM_UPDATE_SETTINGS"/>/>
-    </Preference>
+    </io.naika.ui.prefs.DashboardRoundedPreference>
 
     <PreferenceCategory
         android:order="-200"
@@ -49,24 +49,22 @@
         settings:shouldDisableView="false"
         settings:enabled="false" />
 
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_network"
         android:order="-190"
         android:icon="@drawable/ic_settings_wireless"
         android:summary="@string/summary_placeholder"
         android:title="@string/network_dashboard_title"
         android:fragment="com.android.settings.network.NetworkDashboardFragment"
-        settings:layout="@layout/dot_dashboard_preference_top"
         settings:controller="com.android.settings.network.TopLevelNetworkEntryPreferenceController" />
 
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_connected_devices"
         android:order="-180"
         android:icon="@drawable/ic_devices_other"
         android:summary="@string/connected_devices_dashboard_default_summary"
         android:title="@string/connected_devices_dashboard_title"
         android:fragment="com.android.settings.connecteddevice.ConnectedDeviceDashboardFragment"
-        settings:layout="@layout/dot_dashboard_preference_bottom"
         settings:controller="com.android.settings.connecteddevice.TopLevelConnectedDevicesPreferenceController" />
 
     <PreferenceCategory
@@ -76,60 +74,54 @@
         settings:shouldDisableView="false"
         settings:enabled="false" />
 
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_customizer"
         android:order="-160"
         android:icon="@drawable/ic_settings_wallpaper_white"
-        android:summary="@string/dot_customizer_dashboard_summary"
-        android:title="@string/dot_customizer_dashboard_title"
-        settings:controller="com.android.settings.display.TopLevelWallpaperPreferenceController"
-        settings:layout="@layout/dot_dashboard_preference_top" />
+        android:summary="@string/naika_customizer_dashboard_summary"
+        android:title="@string/naika_customizer_dashboard_title"
+        settings:controller="com.android.settings.display.TopLevelWallpaperPreferenceController" />
 
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_display"
         android:order="-109"
         android:icon="@drawable/ic_settings_display_white"
         android:summary="@string/display_dashboard_summary"
         android:title="@string/display_settings"
         android:fragment="com.android.settings.DisplaySettings"
-        settings:controller="com.android.settings.display.TopLevelDisplayPreferenceController"
-        settings:layout="@layout/dot_dashboard_preference_middle"/>
+        settings:controller="com.android.settings.display.TopLevelDisplayPreferenceController" />
     
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_sound"
         android:order="-108"
         android:icon="@drawable/ic_volume_up_24dp"
         android:summary="@string/sound_dashboard_summary"
         android:title="@string/sound_settings"
-        settings:layout="@layout/dot_dashboard_preference_middle"
         android:fragment="com.android.settings.notification.SoundSettings"/>
 
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_battery"
         android:order="-107"
         android:icon="@drawable/ic_settings_battery_white"
         android:summary="@string/summary_placeholder"
         android:title="@string/power_usage_summary_title"
         settings:controller="com.android.settings.fuelgauge.TopLevelBatteryPreferenceController"
-        settings:layout="@layout/dot_dashboard_preference_middle"
         android:fragment="com.android.settings.fuelgauge.PowerUsageSummary"/>
 
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_notification"
         android:order="-106"
         android:icon="@drawable/ic_notifications"
         android:title="@string/configure_notification_settings"
         android:summary="@string/notification_dashboard_summary"
-        settings:layout="@layout/dot_dashboard_preference_middle"
         android:fragment="com.android.settings.notification.ConfigureNotificationSettings"/>
 
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_apps"
         android:order="-105"
         android:icon="@drawable/ic_apps"
         android:summary="@string/app_and_notification_dashboard_summary"
         android:title="@string/app_and_notification_dashboard_title"
-        settings:layout="@layout/dot_dashboard_preference_bottom"
         android:fragment="com.android.settings.applications.AppDashboardFragment"/>
 
     <PreferenceCategory
@@ -139,51 +131,46 @@
         settings:shouldDisableView="false"
         settings:enabled="false" />
 
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_privacy"
         android:order="-99"
         android:icon="@drawable/ic_settings_privacy"
         android:summary="@string/privacy_dashboard_summary"
         android:title="@string/privacy_dashboard_title"
-        settings:layout="@layout/dot_dashboard_preference_top"
         android:fragment="com.android.settings.privacy.PrivacyDashboardFragment"/>
 
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_security"
         android:order="-98"
         android:icon="@drawable/ic_settings_security_white"
         android:summary="@string/security_dashboard_summary"
         android:title="@string/security_settings_title"
-        settings:layout="@layout/dot_dashboard_preference_middle"
         android:fragment="com.android.settings.security.SecuritySettings"
         settings:controller="com.android.settings.security.TopLevelSecurityEntryPreferenceController"/>
 
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_location"
         android:order="-97"
         android:icon="@drawable/ic_settings_location"
         android:summary="@string/location_settings_loading_app_permission_stats"
         android:title="@string/location_settings_title"
         settings:controller="com.android.settings.location.TopLevelLocationPreferenceController"
-        settings:layout="@layout/dot_dashboard_preference_middle"
         android:fragment="com.android.settings.location.LocationSettings"/>
 
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_emergency"
         android:order="-96"
         android:icon="@drawable/ic_settings_emergency"
         android:summary="@string/emergency_dashboard_summary"
         android:title="@string/emergency_settings_preference_title"
-        settings:layout="@layout/dot_dashboard_preference_middle"
         android:fragment="com.android.settings.emergency.EmergencyDashboardFragment"/>
 
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_accounts"
         android:order="-95"
         android:icon="@drawable/ic_settings_accounts"
         android:summary="@string/summary_placeholder"
         android:title="@string/account_dashboard_title"
-        settings:layout="@layout/dot_dashboard_preference_bottom"
         settings:controller="com.android.settings.accounts.TopLevelAccountEntryPreferenceController" 
         android:fragment="com.android.settings.accounts.AccountDashboardFragment"/>
 
@@ -194,42 +181,38 @@
         settings:shouldDisableView="false"
         settings:enabled="false" />
     
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_accessibility"
         android:order="-20"
         android:icon="@drawable/ic_settings_accessibility"
         android:summary="@string/accessibility_settings_summary"
         android:title="@string/accessibility_settings"
-        settings:layout="@layout/dot_dashboard_preference_top"
         android:fragment="com.android.settings.accessibility.AccessibilitySettings"
         settings:controller="com.android.settings.accessibility.TopLevelAccessibilityPreferenceController" />
 
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_storage"
         android:order="-11"
         android:icon="@drawable/ic_storage_white"
         android:summary="@string/summary_placeholder"
         android:title="@string/storage_settings"
-        settings:layout="@layout/dot_dashboard_preference_middle"
         android:fragment="com.android.settings.deviceinfo.StorageDashboardFragment"
         settings:controller="com.android.settings.deviceinfo.TopLevelStoragePreferenceController" />
 
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_support"
         android:order="10"
         android:icon="@drawable/ic_help"
         android:summary="@string/support_summary"
         android:title="@string/page_tab_title_support"
-        settings:layout="@layout/dot_dashboard_preference_middle"
         settings:controller="com.android.settings.support.SupportPreferenceController"/>
 
-    <Preference
+    <io.naika.ui.prefs.DashboardRoundedPreference
         android:key="top_level_system"
         android:order="20"
         android:icon="@drawable/ic_settings_system_dashboard_white"
         android:summary="@string/system_dashboard_summary"
         android:title="@string/header_category_system"
-        settings:layout="@layout/dot_dashboard_preference_bottom"
         android:fragment="com.android.settings.system.SystemDashboardFragment"/>
 
 </PreferenceScreen>

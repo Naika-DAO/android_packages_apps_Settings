@@ -15,7 +15,7 @@ Copyright (C) The 2022 dotOS Project
     android:id="@+id/entity_header"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="6sp">
+    android:padding="6dp">
 
     <FrameLayout
         android:id="@+id/logo"
@@ -33,8 +33,7 @@ Copyright (C) The 2022 dotOS Project
             android:layout_height="72dp"
             android:layout_gravity="center"
             android:adjustViewBounds="true"
-            android:src="@drawable/ic_rom_logo"
-            android:tint="?android:attr/colorAccent" />
+            android:src="@drawable/ic_rom_logo" />
     </FrameLayout>
 
     <LinearLayout
@@ -48,8 +47,8 @@ Copyright (C) The 2022 dotOS Project
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/dot_colorAboutUI"
-            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="@color/naika_pref_color"
+            app:cardCornerRadius="28dp"
             app:cardElevation="0dp">
 
             <LinearLayout
@@ -102,8 +101,8 @@ Copyright (C) The 2022 dotOS Project
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:cardBackgroundColor="@color/dot_colorAboutUI"
-            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="@color/naika_pref_color"
+            app:cardCornerRadius="28dp"
             app:cardElevation="0dp">
 
             <LinearLayout

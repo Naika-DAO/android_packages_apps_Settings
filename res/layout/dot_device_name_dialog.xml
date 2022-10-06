@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:autofillHints="Device Name"
-        android:background="@drawable/dot_edit_background"
+        android:background="@drawable/naika_edit_background"
         android:focusedByDefault="true"
         android:hint="@string/bluetooth_device_name"
         android:singleLine="true"

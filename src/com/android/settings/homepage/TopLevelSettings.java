@@ -31,6 +31,7 @@ import android.util.Log;
 
 import androidx.fragment.app.Fragment;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,6 +49,11 @@ import com.android.settingslib.core.instrumentation.Instrumentable;
 import com.android.settingslib.drawer.Tile;
 import com.android.settingslib.search.SearchIndexable;
 
+import io.naika.ui.controller.PreferenceCornerHandler;
+import io.naika.ui.prefs.RoundedPreference;
+
+import java.util.Arrays;
+
 @SearchIndexable(forTarget = MOBILE)
 public class TopLevelSettings extends DashboardFragment implements
         PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
@@ -55,6 +61,10 @@ public class TopLevelSettings extends DashboardFragment implements
     private static final String TAG = "TopLevelSettings";
     private static final String SAVED_HIGHLIGHT_MIXIN = "highlight_mixin";
     private static final String PREF_KEY_SUPPORT = "top_level_support";
+    private static final String PREF_KEY_OTA = "top_level_system_updates";
+
+    private static final String[] RELEASE_TYPE_TAGS = new String[]{"OFFICIAL", "GMS"};
+    private static final String RELEASE_TYPE_PROP = "ro.naika.releasetype";
 
     private boolean mIsEmbeddingActivityEnabled;
     private TopLevelHighlightMixin mHighlightMixin;
@@ -69,7 +79,7 @@ public class TopLevelSettings extends DashboardFragment implements
 
     @Override
     protected int getPreferenceScreenResId() {
-        return R.xml.dot_top_level_settings;
+        return R.xml.naika_top_level_settings;
     }
 
     @Override
@@ -172,38 +182,30 @@ public class TopLevelSettings extends DashboardFragment implements
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         super.onCreatePreferences(savedInstanceState, rootKey);
+        final int tintColor = Utils.getHomepageIconColor(getContext());
         final PreferenceScreen screen = getPreferenceScreen();
-        for (int i = 0; i < screen.getPreferenceCount(); i++) {
-            Preference pref = screen.getPreference(i);
-            boolean isValid = pref.isEnabled() && pref.isVisible() && pref.getTitle() != null;
-            if (isValid && pref.getLayoutResource() != R.layout.dot_dashboard_preference_top && 
-                pref.getLayoutResource() != R.layout.dot_dashboard_preference_full && 
-                pref.getLayoutResource() != R.layout.dot_dashboard_preference_phone && 
-                pref.getLayoutResource() != R.layout.dot_dashboard_preference_bottom) {
-                pref.setLayoutResource(R.layout.dot_dashboard_preference_middle);
-            }
-            if (pref.getKey() != null && pref.getKey().equals("top_level_system_updates")) {
-                String releaseType = SystemProperties.get("ro.dot.releasetype");
-                boolean isOfficial = releaseType.equals("GAPPS") || releaseType.equals("OFFICIAL");
-                pref.setEnabled(isOfficial);
-            }
-        }
         if (screen == null) {
             return;
         }
-        // Tint the homepage icons
-        final int tintColor = Utils.getHomepageIconColor(getContext());
-        final int count = screen.getPreferenceCount();
-        for (int i = 0; i < count; i++) {
-            final Preference preference = screen.getPreference(i);
-            if (preference == null) {
-                break;
+        for (int i = 0; i < screen.getPreferenceCount(); i++) {
+            Preference pref = screen.getPreference(i);
+            boolean isValid = pref.isVisible() && pref.getTitle() != null;
+            if (!isValid) continue;
+            if (!(pref instanceof PreferenceCategory) && !(pref instanceof RoundedPreference)) {
+                pref.setLayoutResource(io.naika.ui.R.layout.naika_dashboard_preference_legacy_middle);
             }
-            final Drawable icon = preference.getIcon();
+            if (pref.getKey() != null && pref.getKey().equals(PREF_KEY_OTA)) {
+                boolean showOTA = Arrays.stream(RELEASE_TYPE_TAGS).
+                    anyMatch(tag -> tag == SystemProperties.get(RELEASE_TYPE_PROP));
+                if (!showOTA) screen.removePreference(pref);
+            }
+            // Tint the homepage icons
+            final Drawable icon = pref.getIcon();
             if (icon != null) {
                 icon.setTint(tintColor);
             }
         }
+        new PreferenceCornerHandler(screen);
     }
 
     @Override
@@ -272,7 +274,7 @@ public class TopLevelSettings extends DashboardFragment implements
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.dot_top_level_settings) {
+            new BaseSearchIndexProvider(R.xml.naika_top_level_settings) {
 
                 @Override
                 protected boolean isPageSearchEnabled(Context context) {

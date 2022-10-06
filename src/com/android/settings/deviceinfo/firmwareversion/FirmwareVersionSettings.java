@@ -17,11 +17,14 @@
 package com.android.settings.deviceinfo.firmwareversion;
 
 import android.app.settings.SettingsEnums;
+import android.os.Bundle;
 
 import com.android.settings.R;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
+
+import io.naika.ui.controller.PreferenceCornerHandler;
 
 @SearchIndexable
 public class FirmwareVersionSettings extends DashboardFragment {
@@ -34,6 +37,12 @@ public class FirmwareVersionSettings extends DashboardFragment {
     @Override
     protected String getLogTag() {
         return "FirmwareVersionSettings";
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        super.onCreatePreferences(savedInstanceState, rootKey);
+        new PreferenceCornerHandler(getPreferenceScreen());
     }
 
     @Override

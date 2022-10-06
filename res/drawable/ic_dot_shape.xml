@@ -12,7 +12,7 @@ Copyright (C) The 2022 dotOS Project
     limitations under the License.
 -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:tint="@color/dot_shapeColor"
+    android:tint="@color/naika_shapeColor"
     android:shape="oval">
     <solid android:color="#fff" />
     <stroke
