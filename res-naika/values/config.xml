@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+    <string name="config_styles_and_wallpaper_picker_class">com.dot.customizations.picker.CustomizationPickerActivity</string>
+    <string name="config_wallpaper_picker_class">com.dot.customizations.picker.CategoryPickerActivity</string>
+    <string name="config_wallpaper_picker_package">com.dot.customizations</string>
+</resources>
