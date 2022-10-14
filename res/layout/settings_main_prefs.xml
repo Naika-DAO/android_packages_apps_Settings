@@ -49,8 +49,7 @@
                 style="@style/SudGlifButton.Secondary"/>
 
         <RelativeLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
             <Button android:id="@+id/skip_button"
@@ -62,8 +61,10 @@
                     style="@style/SudGlifButton.Secondary"/>
 
             <Button android:id="@+id/next_button"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginBottom="8dp"
                     android:layout_alignParentEnd="true"
                     android:text="@*android:string/next_button_label"
                     style="@style/SudGlifButton.Primary"/>

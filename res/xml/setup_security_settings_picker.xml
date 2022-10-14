@@ -19,18 +19,6 @@
         android:key="lock_settings_picker">
 
     <com.android.settingslib.RestrictedPreference
-            android:key="unlock_set_off"
-            android:title="@string/unlock_set_unlock_off_title"
-            android:icon="@drawable/ic_lock_none"
-            android:persistent="false"/>
-
-    <com.android.settingslib.RestrictedPreference
-            android:key="unlock_set_none"
-            android:title="@string/unlock_set_unlock_none_title"
-            android:icon="@drawable/ic_lock_swipe"
-            android:persistent="false"/>
-
-    <com.android.settingslib.RestrictedPreference
             android:key="unlock_set_pattern"
             android:title="@string/unlock_set_unlock_pattern_title"
             android:icon="@drawable/ic_pattern"
@@ -49,8 +37,15 @@
             android:persistent="false"/>
 
     <com.android.settingslib.RestrictedPreference
-            android:key="unlock_set_do_later"
-            android:title="@string/unlock_set_do_later_title"
+            android:key="unlock_set_off"
+            android:title="@string/unlock_set_unlock_off_title"
+            android:icon="@drawable/ic_lock_none"
+            android:persistent="false"/>
+
+    <com.android.settingslib.RestrictedPreference
+            android:key="unlock_set_none"
+            android:title="@string/unlock_set_unlock_none_title"
+            android:icon="@drawable/ic_lock_swipe"
             android:persistent="false"/>
 
 </PreferenceScreen>

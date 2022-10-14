@@ -98,6 +98,7 @@ import com.android.wifitrackerlib.WifiPickerTracker;
 
 import com.google.android.setupcompat.template.FooterButtonStyleUtils;
 import com.google.android.setupcompat.util.WizardManagerHelper;
+import com.google.android.setupdesign.GlifLayout.HeaderNavigationBarListener;
 import com.google.android.setupdesign.GlifPreferenceLayout;
 
 import java.util.List;
@@ -112,7 +113,8 @@ import java.util.Optional;
 public class NetworkProviderSettings extends RestrictedSettingsFragment
         implements Indexable, WifiPickerTracker.WifiPickerTrackerCallback,
         WifiDialog2.WifiDialog2Listener, DialogInterface.OnDismissListener,
-        AirplaneModeEnabler.OnAirplaneModeChangedListener, InternetUpdater.InternetChangeListener {
+        AirplaneModeEnabler.OnAirplaneModeChangedListener, InternetUpdater.InternetChangeListener,
+        HeaderNavigationBarListener {
 
     public static final String ACTION_NETWORK_PROVIDER_SETTINGS =
             "android.settings.NETWORK_PROVIDER_SETTINGS";
@@ -285,8 +287,7 @@ public class NetworkProviderSettings extends RestrictedSettingsFragment
 
             layout.setIcon(getContext().getDrawable(R.drawable.ic_network_setup));
             layout.setHeaderText(R.string.provider_internet_settings);
-            FooterButtonStyleUtils.applyPrimaryButtonPartnerResource(activity, getNextButton(),
-                    true);
+            layout.enableHeaderNavigation(this, true);
 
             return;
         }
@@ -298,6 +299,16 @@ public class NetworkProviderSettings extends RestrictedSettingsFragment
             setLoading(true, false);
             mIsViewLoading = true;
         }
+    }
+
+    public void onNavigateBack() {
+        getActivity().setResult(Activity.RESULT_CANCELED);
+        getActivity().onBackPressed();
+    }
+
+    public void onSkip() {
+        getActivity().setResult(Activity.RESULT_FIRST_USER + 10);
+        getActivity().finish();
     }
 
     @Override

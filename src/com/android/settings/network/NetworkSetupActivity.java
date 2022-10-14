@@ -62,6 +62,6 @@ public class NetworkSetupActivity extends SettingsActivity implements ButtonBarH
     @Override
     protected void onApplyThemeResource(Resources.Theme theme, int resid, boolean first) {
         final int new_resid = SetupWizardUtils.getTheme(this, getIntent());
-        super.onApplyThemeResource(theme, new_resid, first);
+        super.onApplyThemeResource(theme, R.style.SudDynamicColorThemeSettings_SetupWizard, first);
     }
 }

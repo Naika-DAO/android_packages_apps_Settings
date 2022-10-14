@@ -21,6 +21,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PASSWORD_COMPLEXITY;
 
 import static com.android.settings.password.ChooseLockSettingsHelper.EXTRA_KEY_REQUESTED_MIN_COMPLEXITY;
 
+import android.app.Activity;
 import android.app.RemoteServiceException.MissingRequestPasswordComplexityPermissionException;
 import android.content.Context;
 import android.content.Intent;
@@ -43,6 +44,7 @@ import com.android.settings.SetupWizardUtils;
 import com.android.settings.utils.SettingsDividerItemDecoration;
 
 import com.google.android.setupdesign.GlifPreferenceLayout;
+import com.google.android.setupdesign.GlifLayout.HeaderNavigationBarListener;
 import com.google.android.setupdesign.util.ThemeHelper;
 
 /**
@@ -70,7 +72,7 @@ public class SetupChooseLockGeneric extends ChooseLockGeneric {
     @Override
     protected void onCreate(Bundle savedInstance) {
         setTheme(SetupWizardUtils.getTheme(this, getIntent()));
-        ThemeHelper.trySetDynamicColor(this);
+        //ThemeHelper.trySetDynamicColor(this);
         super.onCreate(savedInstance);
 
         if(getIntent().hasExtra(EXTRA_KEY_REQUESTED_MIN_COMPLEXITY)) {
@@ -96,7 +98,7 @@ public class SetupChooseLockGeneric extends ChooseLockGeneric {
         return false;
     }
 
-    public static class SetupChooseLockGenericFragment extends ChooseLockGenericFragment {
+    public static class SetupChooseLockGenericFragment extends ChooseLockGenericFragment implements HeaderNavigationBarListener {
 
         public static final String EXTRA_PASSWORD_QUALITY = ":settings:password_quality";
 
@@ -111,25 +113,31 @@ public class SetupChooseLockGeneric extends ChooseLockGeneric {
 
             layout.setIcon(getContext().getDrawable(R.drawable.ic_lock));
 
+            layout.enableHeaderNavigation(this, true);
+
             int titleResource = isForBiometric() ?
                     R.string.lock_settings_picker_title : R.string.setup_lock_settings_picker_title;
+            int descriptionResource = isForBiometric() ?
+                    R.string.lock_settings_picker_biometrics_added_security_message : R.string.setup_lock_settings_picker_message;
             if (getActivity() != null) {
                 getActivity().setTitle(titleResource);
             }
 
             layout.setHeaderText(titleResource);
+            layout.setDescriptionText(descriptionResource);
             // Use the dividers in SetupWizardRecyclerLayout. Suppress the dividers in
             // PreferenceFragment.
             setDivider(null);
         }
 
-        @Override
-        protected void addHeaderView() {
-            if (isForBiometric()) {
-                setHeaderView(R.layout.setup_choose_lock_generic_biometrics_header);
-            } else {
-                setHeaderView(R.layout.setup_choose_lock_generic_header);
-            }
+        public void onNavigateBack() {
+            getActivity().setResult(RESULT_CANCELED);
+            getActivity().onBackPressed();
+        }
+
+        public void onSkip() {
+            getActivity().setResult(Activity.RESULT_FIRST_USER + 10);
+            getActivity().finish();
         }
 
         @Override
@@ -178,26 +186,6 @@ public class SetupChooseLockGeneric extends ChooseLockGeneric {
             } else {
                 addPreferencesFromResource(R.xml.setup_security_settings_picker);
             }
-        }
-
-        @Override
-        public boolean onPreferenceTreeClick(Preference preference) {
-            final String key = preference.getKey();
-            if (KEY_UNLOCK_SET_DO_LATER.equals(key)) {
-                // show warning.
-                SetupSkipDialog dialog = SetupSkipDialog.newInstance(
-                        getActivity().getIntent()
-                                .getBooleanExtra(SetupSkipDialog.EXTRA_FRP_SUPPORTED, false),
-                        /* isPatternMode= */ false,
-                        /* isAlphaMode= */ false,
-                        /* forFingerprint= */ false,
-                        /* forFace= */ false,
-                        /* forBiometrics= */ false
-                );
-                dialog.show(getFragmentManager());
-                return true;
-            }
-            return super.onPreferenceTreeClick(preference);
         }
 
         @Override

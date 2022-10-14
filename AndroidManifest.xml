@@ -1905,7 +1905,7 @@
                 android:icon="@drawable/ic_accessibility_suggestion"
                 android:label="@string/vision_settings_title"
                 android:exported="true"
-                android:theme="@style/SudDynamicColorThemeSettings.SetupWizard.DayNight">
+                android:theme="@style/SudDynamicColorThemeSettings.SetupWizard">
             <intent-filter android:priority="1">
                 <action android:name="android.settings.ACCESSIBILITY_SETTINGS_FOR_SUW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -2091,7 +2091,7 @@
         </activity>
 
         <activity android:name=".notification.RedactionInterstitial"
-            android:theme="@style/GlifTheme.Light" />
+            android:theme="@style/SudDynamicColorThemeSettings.SetupWizard" />
 
         <activity android:name=".notification.RedactionSettingsStandalone"
                   android:exported="true">
@@ -2102,11 +2102,11 @@
         </activity>
 
         <activity android:name=".password.ConfirmLockPattern"
-            android:theme="@style/GlifTheme.Light"/>
+            android:theme="@style/SudDynamicColorThemeSettings.SetupWizard"/>
 
         <activity android:name=".password.ConfirmLockPassword"
             android:windowSoftInputMode="stateHidden|adjustResize"
-            android:theme="@style/GlifTheme.Light"/>
+            android:theme="@style/SudDynamicColorThemeSettings.SetupWizard"/>
 
         <activity android:name=".password.ForgotPasswordActivity"
             android:theme="@style/GlifV3Theme.Light"
@@ -2143,11 +2143,11 @@
         <!-- Must not be exported -->
         <activity android:name=".biometrics.BiometricEnrollActivity$InternalActivity"
             android:exported="false"
-            android:theme="@style/GlifTheme.Light"/>
+            android:theme="@style/SudDynamicColorThemeSettings.SetupWizard"/>
 
         <activity android:name=".biometrics.BiometricEnrollActivity"
             android:exported="true"
-            android:theme="@style/GlifTheme.Light">
+            android:theme="@style/SudDynamicColorThemeSettings.SetupWizard">
             <intent-filter>
                 <action android:name="android.settings.BIOMETRIC_ENROLL" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -2161,7 +2161,7 @@
         <activity android:name=".biometrics.fingerprint.FingerprintEnrollParentalConsent" android:exported="false"/>
         <activity android:name=".biometrics.fingerprint.FingerprintEnrollIntroduction"
             android:exported="true"
-            android:theme="@style/GlifTheme.Light">
+            android:theme="@style/SudDynamicColorThemeSettings.SetupWizard">
             <intent-filter>
                 <action android:name="android.settings.FINGERPRINT_ENROLL" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -2174,7 +2174,7 @@
         <activity android:name=".biometrics.fingerprint.SetupFingerprintEnrollIntroduction"
             android:exported="true"
             android:permission="android.permission.MANAGE_FINGERPRINT"
-            android:theme="@style/GlifTheme.Light">
+            android:theme="@style/SudDynamicColorThemeSettings.SetupWizard">
             <intent-filter>
                 <action android:name="android.settings.FINGERPRINT_SETUP" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -2185,7 +2185,7 @@
             android:exported="true"
             android:permission="android.permission.MANAGE_FINGERPRINT"
             android:icon="@drawable/ic_suggestion_fingerprint"
-            android:theme="@style/GlifTheme.Light">
+            android:theme="@style/SudDynamicColorThemeSettings.SetupWizard">
             <meta-data android:name="com.android.settings.require_feature"
                 android:value="android.hardware.fingerprint" />
             <meta-data android:name="com.android.settings.title"
@@ -2214,16 +2214,16 @@
         <!-- Note this must not be exported since it returns the password in the intent -->
         <activity android:name=".password.ConfirmLockPattern$InternalActivity"
             android:exported="false"
-            android:theme="@style/GlifTheme.Light"/>
+            android:theme="@style/SudDynamicColorThemeSettings.SetupWizard"/>
 
         <!-- Note this must not be exported since it returns the password in the intent -->
         <activity android:name=".password.ConfirmLockPassword$InternalActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize"
-            android:theme="@style/GlifTheme.Light"/>
+            android:theme="@style/SudDynamicColorThemeSettings.SetupWizard"/>
 
         <activity android:name=".password.SetupChooseLockGeneric"
-            android:theme="@style/GlifTheme.Light"
+            android:theme="@style/SudDynamicColorThemeSettings.SetupWizard"
             android:exported="true"
             android:label="@string/lock_settings_picker_title">
             <intent-filter android:priority="1">
@@ -2293,28 +2293,28 @@
 
         <activity android:name=".password.SetupChooseLockPattern"
             android:exported="false"
-            android:theme="@style/GlifTheme.Light" />
+            android:theme="@style/SudDynamicColorThemeSettings.SetupWizard" />
 
         <activity android:name=".password.ChooseLockPattern"
             android:exported="false"
-            android:theme="@style/GlifTheme.Light" />
+            android:theme="@style/SudDynamicColorThemeSettings.SetupWizard" />
 
         <activity android:name=".password.SetupChooseLockPassword"
             android:exported="false"
-            android:theme="@style/GlifTheme.Light"
+            android:theme="@style/SudDynamicColorThemeSettings.SetupWizard"
             android:windowSoftInputMode="stateVisible|adjustResize" />
 
         <activity android:name=".password.ChooseLockPassword"
             android:exported="false"
-            android:theme="@style/GlifTheme.Light"
+            android:theme="@style/SudDynamicColorThemeSettings.SetupWizard"
             android:windowSoftInputMode="stateVisible|adjustResize"/>
 
         <activity android:name=".SetupEncryptionInterstitial"
             android:label="@string/encryption_interstitial_header"
-            android:theme="@style/GlifTheme.Light"/>
+            android:theme="@style/SudDynamicColorThemeSettings.SetupWizard"/>
 
         <activity android:name=".EncryptionInterstitial"
-            android:theme="@style/GlifTheme.Light" />
+            android:theme="@style/SudDynamicColorThemeSettings.SetupWizard" />
 
         <activity
             android:name=".Settings$StorageDashboardActivity"

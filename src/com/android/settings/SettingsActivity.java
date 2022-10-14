@@ -75,6 +75,7 @@ import com.android.settingslib.core.instrumentation.SharedPreferencesLogger;
 import com.android.settingslib.development.DevelopmentSettingsEnabler;
 import com.android.settingslib.drawer.DashboardCategory;
 
+import com.google.android.setupcompat.template.FooterButtonStyleUtils;
 import com.google.android.setupcompat.util.WizardManagerHelper;
 
 import java.util.ArrayList;
@@ -337,6 +338,7 @@ public class SettingsActivity extends SettingsBaseActivity
                     setResult(RESULT_OK, null);
                     finish();
                 });
+                FooterButtonStyleUtils.applyPrimaryButtonPartnerResource(this, mNextButton, true);
 
                 // set our various button parameters
                 if (intent.hasExtra(EXTRA_PREFS_SET_NEXT_TEXT)) {
