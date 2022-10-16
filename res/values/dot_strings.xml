@@ -76,5 +76,8 @@
     <string name="selinux_status_disabled">Disabled</string>
     <string name="selinux_status_permissive">Permissive</string>
     <string name="selinux_status_enforcing">Enforcing</string>
+
+    <string name="community_card_title">Community</string>
+    <string name="community_card_summary">Check out our community!\nMake the most out of the web3 perks and features</string>
     
 </resources>

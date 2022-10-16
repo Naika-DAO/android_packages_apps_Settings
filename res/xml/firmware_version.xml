@@ -51,6 +51,8 @@
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.SecurityPatchLevelPreferenceController"/>
 
+    <PreferenceCategory />
+
     <!-- Mainline module version -->
     <Preference
         android:key="module_version"
