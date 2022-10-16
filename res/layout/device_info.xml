@@ -25,8 +25,8 @@ Copyright (C) The 2022 dotOS Project
         android:background="@drawable/ic_dot_shape">
 
         <ImageView
-            android:layout_width="72dp"
-            android:layout_height="72dp"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:src="@drawable/ic_rom_logo" />

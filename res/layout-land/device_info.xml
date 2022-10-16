@@ -26,11 +26,10 @@ Copyright (C) The 2022 dotOS Project
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="38dp"
+            android:layout_height="42dp"
             android:layout_gravity="center"
             android:adjustViewBounds="true"
-            android:src="@drawable/ic_rom_logo"
-            android:tint="?android:attr/colorAccent" />
+            android:src="@drawable/ic_rom_logo" />
     </FrameLayout>
 
     <LinearLayout

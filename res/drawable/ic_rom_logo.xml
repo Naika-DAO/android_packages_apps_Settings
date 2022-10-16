@@ -1,37 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-    Copyright (C) The 2022 The Naika Project
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-         http://www.apache.org/licenses/LICENSE-2.0
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
--->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="18dp"
-    android:height="14dp"
-    android:viewportWidth="75.4"
-    android:viewportHeight="67.6">
-    <path
-        android:fillColor="@color/naika_accent_tertiary"
-        android:pathData="M75.408,17.105l-8.6,-0l0,-8.6l8.6,0z"/>
-    <path
-        android:fillColor="@color/naika_accent_tertiary"
-        android:pathData="M66.871,25.742l-8.6,-0l0,-8.6l8.6,0z"/>
-    <path
-        android:fillColor="@color/naika_accent_tertiary"
-        android:pathData="M49.7,8.6h8.6v8.6h-8.6z"/>
-    <path
-        android:fillColor="@color/naika_accent_tertiary"
-        android:pathData="M58.3,0h8.6v8.6h-8.6z"/>
-    <path
-        android:fillColor="?android:attr/colorAccent"
-        android:pathData="M9.1,45.5l0,-19.8l-9.1,0l0,41.9l9.1,0l0,-14.2z"/>
-    <path
-        android:fillColor="?android:attr/colorAccent"
-        android:pathData="M35,17.2l-25.9,0l0,8.5l21.9,0l9.7,9.6l0,32.3l9,0l0,-35.4z"/>
+    android:width="72dp"
+    android:height="72dp"
+    android:viewportWidth="960"
+    android:viewportHeight="960">
+    <group>
+        <clip-path android:pathData="M362.84,128.54L596.84,128.54L596.84,362.54L362.84,362.54ZM362.84,128.54" />
+        <path
+            android:fillColor="@color/naika_accent1"
+            android:fillType="nonZero"
+            android:pathData="M362.84,128.54L596.84,128.54L596.84,362.54L362.84,362.54L362.84,128.54" />
+    </group>
+    <group>
+        <clip-path android:pathData="M597.16,362.84L831.16,362.84L831.16,596.84L597.16,596.84ZM597.16,362.84" />
+        <path
+            android:fillColor="@color/naika_accent1"
+            android:fillType="nonZero"
+            android:pathData="M597.16,362.84L831.16,362.84L831.16,596.84L597.16,596.84L597.16,362.84" />
+    </group>
+    <group>
+        <clip-path android:pathData="M362.84,597.16L596.84,597.16L596.84,831.16L362.84,831.16ZM362.84,597.16" />
+        <path
+            android:fillColor="@color/naika_accent1"
+            android:fillType="nonZero"
+            android:pathData="M362.84,597.16L596.84,597.16L596.84,831.16L362.84,831.16L362.84,597.16" />
+    </group>
+    <group>
+        <clip-path android:pathData="M128.54,362.84L362.54,362.84L362.54,596.84L128.54,596.84ZM128.54,362.84" />
+        <path
+            android:fillColor="@color/naika_accent1"
+            android:fillType="nonZero"
+            android:pathData="M128.54,362.84L362.54,362.84L362.54,596.84L128.54,596.84L128.54,362.84" />
+    </group>
+    <group>
+        <clip-path android:pathData="M512.93,128.54L596.93,128.54L596.93,362.54L512.93,362.54ZM512.93,128.54" />
+        <path
+            android:fillColor="@color/naika_accent2"
+            android:fillType="nonZero"
+            android:pathData="M512.93,128.54L596.93,128.54L596.93,362.54L512.93,362.54L512.93,128.54" />
+    </group>
+    <group>
+        <clip-path android:pathData="M362.84,597.16L446.84,597.16L446.84,831.16L362.84,831.16ZM362.84,597.16" />
+        <path
+            android:fillColor="@color/naika_accent2"
+            android:fillType="nonZero"
+            android:pathData="M362.84,597.16L446.84,597.16L446.84,831.16L362.84,831.16L362.84,597.16" />
+    </group>
+    <group>
+        <clip-path android:pathData="M597.16,520.25L831.16,520.25L831.16,597.5L597.16,597.5ZM597.16,520.25" />
+        <path
+            android:fillColor="@color/naika_accent2"
+            android:fillType="nonZero"
+            android:pathData="M597.16,520.25L831.15,520.25L831.15,597.5L597.16,597.5L597.16,520.25" />
+    </group>
+    <group>
+        <clip-path android:pathData="M128.54,362.84L362.54,362.84L362.54,440.09L128.54,440.09ZM128.54,362.84" />
+        <path
+            android:fillColor="@color/naika_accent2"
+            android:fillType="nonZero"
+            android:pathData="M128.54,362.84L362.53,362.84L362.53,440.09L128.54,440.09L128.54,362.84" />
+    </group>
 </vector>
