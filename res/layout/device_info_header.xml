@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="18sp">
+    android:padding="16dp">
 
     <com.android.settings.deviceinfo.aboutphone.AboutDevice
         android:id="@+id/about_device_header"

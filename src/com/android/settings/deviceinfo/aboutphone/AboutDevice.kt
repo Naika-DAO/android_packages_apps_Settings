@@ -25,8 +25,8 @@ class AboutDevice : FrameLayout {
     init {
         inflate(context, R.layout.device_info, this)
         // ROM Version
-        val version = SystemProperties.get("ro.naika.version")
-        val type = SystemProperties.get("ro.dot.releasetype")
+        val version = SystemProperties.get("ro.modversion")
+        val type = SystemProperties.get("ro.naika.releasetype")
 
         findViewById<TextView>(R.id.romVersion).text = (if (type == "GAPPS") {
             version + " " + context.getString(R.string.about_device_version_type_gapps)
